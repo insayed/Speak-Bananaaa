@@ -1,4 +1,3 @@
+var username =prompt("Give me yourname")
 
-
-var username = prompt("Give me yourname")
-alert("this script works!! " + usernameSayed)
+alert("This Works!! " + username) 
