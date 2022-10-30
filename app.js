@@ -1,3 +1,5 @@
-var username =prompt("Give me yourname")
+var btnTransalte = document.querySelector("#btn-translate")
 
-alert("This Works!! " + username) 
+btnTransalte.addEventListener("click", function clickEventHandler() {
+    comsole.log("Clicked!")
+})
