@@ -1,5 +1,35 @@
-var btnTransalte = document.querySelector("#btn-translate")
+var btnTranslate = document.querySelector("#btn-translate");
+var txtInput = document.querySelector("#txt-input");
+var outputDiv = document.querySelector("#output");
 
-btnTransalte.addEventListener("click", function clickEventHandler() {
-    comsole.log("Clicked!")
-})
+// var serverURL = "https://lessonfourapi.tanaypratap.repl.co/translate/yoda.json"
+
+var serverURL = "https://api.funtranslations.com/translate/navi.json"
+
+function getTranslationURL(text) {
+    return serverURL + "?" + "text=" + text
+
+}
+
+function errorHandler(error) {
+    console.log("error occured", error);
+    alert("something wrong with server! Try again after sometime")
+}
+
+function clickHandler()  {
+    var inputText = txtInput.value;
+
+
+    fetch(getTranslationURL(inputText))
+         .then(response => response.json())
+         .then(json => { 
+            var translatedText = json.contents.translated;
+            outputDiv.innerText = translatedText;
+         })
+         .catch(errorHandler)
+};  
+
+
+
+btnTranslate.addEventListener("click", clickHandler)
+
